@@ -46,7 +46,7 @@ module Api
     def index
       @products = Product.all
 
-      render json: @products
+      render_jsonapi(@products)
     end
 
     # GET /products/1
@@ -88,6 +88,12 @@ module Api
     # Only allow a trusted parameter "white list" through.
     def product_params
       params.fetch(:product, {})
+    end
+
+    private
+
+    def render_jsonapi(resources)
+      render json: ProductSerializer.new(resources).serialized_json
     end
   end
 

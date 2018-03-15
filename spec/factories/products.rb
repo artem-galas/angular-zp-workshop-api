@@ -13,9 +13,16 @@
 
 FactoryBot.define do
   factory :product do
-    title "MyString"
-    price ""
-    description "MyString"
-    image "MyString"
+    title 'Comics 1'
+    price 300.00
+    description 'This is amazing comics'
+    image ''
+
+    before :create do |product|
+      # p file_fixture('1.jpg')
+      File.open("#{::Rails.root}/spec/fixtures/1.jpg") do |f|
+        product.image = f
+      end
+    end
   end
 end
