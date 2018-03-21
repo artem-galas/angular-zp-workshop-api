@@ -10,6 +10,48 @@
 #
 
 class User < ApplicationRecord
+  include Swagger::Blocks
+
+  swagger_schema :User do
+    key :required, [:email]
+    property :email do
+      key :type, :string
+    end
+  end
+
+  swagger_schema :UserResponse do
+    property :data do
+      property :id do
+        key :type, :integer
+        key :format, :int64
+      end
+      property :type do
+        key :type, :string
+        key :description, 'user'
+      end
+      property :attributes do
+        key :'$ref', :User
+      end
+    end
+  end
+
+  swagger_schema :AuthRequest do
+    property :data do
+      property :type do
+        key :type, :string
+        key :description, 'user'
+      end
+      property :attributes do
+        property :email do
+          key :type, :string
+        end
+        property :password do
+          key :type, :string
+        end
+      end
+    end
+  end
+
   has_secure_password
 
   validates_presence_of :email
