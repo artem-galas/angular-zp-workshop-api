@@ -4,7 +4,7 @@ RSpec.describe "Products", type: :request do
   let!(:product) { create_list(:product, 5) }
 
   describe 'GET /products' do
-    it 'Success return products' do
+    it 'has 200 status' do
       get api_products_path
 
       expect(response).to have_http_status(200)

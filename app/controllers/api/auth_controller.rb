@@ -8,7 +8,7 @@ module Api
         auth_token = JsonWebToken.encode({user_id: user.id})
         render json: {auth_token: auth_token}, status: :ok
       else
-        render json: {error: 'Invalid username / password'}, status: :unauthorized
+        render_error(401, 'Invalid Login credentials', 'Invalid Login credentials')
       end
     end
   end
