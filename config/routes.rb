@@ -5,5 +5,6 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :products
+    post 'auth/sign-in', to: "auth#sign_in"
   end
 end

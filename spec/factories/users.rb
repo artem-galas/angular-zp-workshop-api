@@ -11,6 +11,7 @@
 
 FactoryBot.define do
   factory :user do
-    
+    email 'fake@mail.com'
+    password '123456789'
   end
 end
