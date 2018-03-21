@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :products
-    post 'auth/sign-in', to: 'auth#sign_in'
+    post 'auth/sign_in', to: 'auth#sign_in'
     get '/profile', to: 'profile#show'
   end
 end

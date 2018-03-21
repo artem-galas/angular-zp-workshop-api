@@ -30,6 +30,7 @@ class ApidocsController < ActionController::Base
     Api::ProfileController,
     Product,
     User,
+    JwtResponse,
     self
   ].freeze
 

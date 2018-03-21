@@ -19,9 +19,7 @@ module Api
         response 200 do
           key :description, 'User Token'
           schema do
-            property :auth_token do
-              key :type, :string
-            end
+            key :'$ref', :JwtResponse
           end
         end
       end
@@ -32,7 +30,8 @@ module Api
 
       if user && user.authenticate(params[:password])
         auth_token = JsonWebToken.encode({user_id: user.id})
-        render json: {auth_token: auth_token}, status: :ok
+
+        render json: JwtResponse.new(auth_token), status: :ok
       else
         render_error(401, 'Invalid Login credentials', 'Invalid Login credentials')
       end

@@ -11,7 +11,7 @@ RSpec.describe "Auth", type: :request do
           password: '123456789'
         }
 
-      expect(json.keys).to contain_exactly 'auth_token'
+      expect(json['data']['attributes'].keys).to contain_exactly 'auth_token'
       expect(response).to have_http_status(200)
     end
 
