@@ -6,7 +6,7 @@ module Requests
   end
   module Header
     def build_auth_header(user)
-      token = JsonWebToken.encode({user_id: user.id})
+      token = ::JsonWebToken.encode({user_id: user.id})
       return {
         'Authorization': token
       }

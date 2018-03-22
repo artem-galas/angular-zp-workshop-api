@@ -29,7 +29,7 @@ module Api
       user = User.find_by(email: params[:email].to_s.downcase)
 
       if user && user.authenticate(params[:password])
-        auth_token = JsonWebToken.encode({user_id: user.id})
+        auth_token = ::JsonWebToken.encode({user_id: user.id})
 
         render json: JwtResponse.new(auth_token), status: :ok
       else

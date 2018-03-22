@@ -3,7 +3,7 @@ module Api
 
     protected
     def authenticate_request!
-      if !payload || !JsonWebToken.valid_payload(payload.first)
+      if !payload || !::JsonWebToken.valid_payload(payload.first)
         return invalid_authentication
       end
 
@@ -29,7 +29,7 @@ module Api
     def payload
       auth_header = request.headers['Authorization']
       token = auth_header.split(' ').last
-      JsonWebToken.decode(token)
+      ::JsonWebToken.decode(token)
     rescue
       nil
     end
