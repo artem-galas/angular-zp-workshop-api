@@ -17,7 +17,6 @@ module Api
       end
     end
 
-
     before_action :authenticate_request!
 
     def show

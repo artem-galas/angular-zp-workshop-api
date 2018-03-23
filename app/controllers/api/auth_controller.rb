@@ -25,6 +25,8 @@ module Api
       end
     end
 
+    before_action :authenticate_request!, only: [:load_user]
+
     def sign_in
       user = User.find_by(email: params[:email].to_s.downcase)
 
@@ -35,6 +37,10 @@ module Api
       else
         render_error(401, 'Invalid Login credentials', 'Invalid Login credentials')
       end
+    end
+
+    def load_user
+      render json: @current_user
     end
   end
 end
