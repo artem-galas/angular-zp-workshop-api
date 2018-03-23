@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     post 'auth/sign_in', to: 'auth#sign_in'
     get 'auth/load_user', to: 'auth#load_user'
     get '/profile', to: 'profile#show'
+    put '/profile/avatar', to: 'profile#update_avatar'
   end
 end

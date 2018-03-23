@@ -3,6 +3,10 @@ module Requests
     def json
       JSON.parse(response.body)
     end
+
+    def json_error
+      json['errors']
+    end
   end
   module Header
     def build_auth_header(user)

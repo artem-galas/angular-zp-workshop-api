@@ -7,9 +7,14 @@
 #  password_digest :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  avatar          :string
 #
 
 class UserSerializer < ActiveModel::Serializer
   type 'user'
-  attributes :id, :email
+  attributes :id, :email, :avatar
+
+  def avatar
+    object.avatar_url
+  end
 end

@@ -7,6 +7,7 @@
 #  password_digest :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  avatar          :string
 #
 
 class User < ApplicationRecord
@@ -56,6 +57,7 @@ class User < ApplicationRecord
 
   validates_presence_of :email
   validates_uniqueness_of :email, case_sensitive: false
+  mount_uploader :avatar, AvatarUploader
 
   before_save :downcase_email
 
