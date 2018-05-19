@@ -22,4 +22,5 @@ RSpec.configure do |config|
     end
   end
   config.include Requests::JsonHelpers
+  config.include Requests::Header
 end

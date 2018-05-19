@@ -17,12 +17,20 @@ class ApidocsController < ActionController::Base
       key :name, 'products'
       key :description, 'Products Operation'
     end
+    tag do
+      key :name, 'auth'
+      key :description, 'Auth Operation'
+    end
     key :basePath, '/api'
   end
 
   SWAGGERED_CLASSES = [
     Api::ProductsController,
+    Api::AuthController,
+    Api::ProfileController,
     Product,
+    User,
+    JwtResponse,
     self
   ].freeze
 

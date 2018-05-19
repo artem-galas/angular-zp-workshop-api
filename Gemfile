@@ -8,6 +8,7 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 
@@ -22,6 +23,10 @@ gem 'pg'
 
 gem 'cloudinary'
 gem 'carrierwave'
+
+gem 'bcrypt'
+
+gem 'jwt'
 
 gem 'rubocop', require: false
 group :development, :test do

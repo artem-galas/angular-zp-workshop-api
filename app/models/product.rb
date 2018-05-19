@@ -39,7 +39,7 @@ class Product < ApplicationRecord
       end
       property :type do
         key :type, :string
-        key :description, 'products'
+        key :description, 'user'
       end
       property :attributes do
         key :'$ref', :Product
